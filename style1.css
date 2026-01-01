@@ -1,0 +1,131 @@
+:root {
+    --primary-color: #3b82f6;
+    --secondary-color: #1e40af;
+    --accent-color: #60a5fa;
+    --text-color: #333333;
+    --bg-color: #ffffff;
+    --bg-alt: #f9fafb;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --primary-color: #60a5fa;
+    --secondary-color: #3b82f6;
+    --accent-color: #93c5fd;
+    --text-color: #e5e7eb;
+    --bg-color: #111827;
+    --bg-alt: #1f2937;
+    --card-bg: #374151;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-alt);
+    color: var(--text-color);
+    padding: 20px;
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+input#hideInput {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--text-color);
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+input#hideInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: var(--card-bg);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+ul li:hover {
+    transform: translateY(-3px);
+}
+
+.btns {
+    margin-top: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    color: #fff;
+}
+
+button:first-child {
+    background: #10b981;
+}
+
+button:first-child:hover {
+    background: #059669;
+}
+
+button:last-child {
+    background: #ef4444;
+}
+
+button:last-child:hover {
+    background: #dc2626;
+}
+
+#finishedList li {
+    opacity: 0.8;
+    background: var(--bg-alt);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    button {
+        padding: 6px 12px;
+        margin-bottom: 5px;
+    }
+}

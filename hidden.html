@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Messages</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-controls">
+            <h1>Hidden Messages Dashboard</h1>
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        <p>Type "hide" below to return to the main page.</p>
+        <input type="text" id="hideInput" placeholder="Type 'hide'">
+
+        <h2>New Messages</h2>
+        <ul id="messageList"></ul>
+
+        <h2>Finished Messages</h2>
+        <ul id="finishedList"></ul>
+    </div>
+
+    <script>
+const hideInput = document.getElementById('hideInput');
+const messageList = document.getElementById('messageList');
+const finishedList = document.getElementById('finishedList');
+
+// ----------------- GO BACK TO INDEX -----------------
+hideInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && hideInput.value.trim().toLowerCase() === 'hide') {
+        window.location.href = 'index.html';
+    }
+});
+
+// ----------------- DARK/LIGHT MODE -----------------
+const themeToggle = document.getElementById('theme-toggle');
+const html = document.documentElement;
+const icon = themeToggle.querySelector('i');
+
+// Load saved theme
+if (localStorage.getItem('theme') === 'dark') {
+    html.setAttribute('data-theme', 'dark');
+    icon.classList.replace('fa-moon', 'fa-sun');
+}
+
+themeToggle.addEventListener('click', () => {
+    if (html.getAttribute('data-theme') === 'dark') {
+        html.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        icon.classList.replace('fa-sun', 'fa-moon');
+    } else {
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        icon.classList.replace('fa-moon', 'fa-sun');
+    }
+});
+
+// ----------------- MESSAGES -----------------
+let messages = JSON.parse(localStorage.getItem('messages')) || [];
+let finished = JSON.parse(localStorage.getItem('finishedMessages')) || [];
+
+function renderMessages() {
+    messageList.innerHTML = '';
+    messages.forEach((msg, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <strong>${msg.name}</strong> (${msg.email}) <br>
+            Gender: ${msg.gender} | Country: ${msg.country} | Phone: ${msg.phone} <br>
+            Message: ${msg.message}
+            <div class="btns">
+                <button onclick="finishMessage(${index})">Finish</button>
+                <button onclick="deleteMessage(${index})">Delete</button>
+            </div>
+        `;
+        messageList.appendChild(li);
+    });
+
+    finishedList.innerHTML = '';
+    finished.forEach((msg) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <strong>${msg.name}</strong> (${msg.email}) <br>
+            Gender: ${msg.gender} | Country: ${msg.country} | Phone: ${msg.phone} <br>
+            Message: ${msg.message}
+        `;
+        finishedList.appendChild(li);
+    });
+}
+
+function deleteMessage(index) {
+    messages.splice(index, 1);
+    localStorage.setItem('messages', JSON.stringify(messages));
+    renderMessages();
+}
+
+function finishMessage(index) {
+    const msg = messages.splice(index, 1)[0];
+    finished.push(msg);
+    localStorage.setItem('messages', JSON.stringify(messages));
+    localStorage.setItem('finishedMessages', JSON.stringify(finished));
+    renderMessages();
+}
+
+renderMessages();
+
+// ----------------- FULLSCREEN SECRET WORD -----------------
+let fullscreenActive = false;
+const secretWord = "mine";
+window.secretInput = "";
+
+document.addEventListener('keydown', (e) => {
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    if (e.key === "Enter") {
+        if (window.secretInput.trim().toLowerCase() === secretWord) {
+            if (!fullscreenActive) openFullscreen();
+            else closeFullscreen();
+            window.secretInput = '';
+        } else {
+            window.secretInput = '';
+        }
+    } else if (e.key.length === 1) {
+        window.secretInput += e.key;
+    } else if (e.key === "Backspace") {
+        window.secretInput = window.secretInput.slice(0, -1);
+    }
+});
+
+function openFullscreen() {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) elem.requestFullscreen();
+    else if (elem.mozRequestFullScreen) elem.mozRequestFullScreen();
+    else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+    else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
+    fullscreenActive = true;
+}
+
+function closeFullscreen() {
+    if (document.exitFullscreen) document.exitFullscreen();
+    else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    else if (document.msExitFullscreen) document.msExitFullscreen();
+    fullscreenActive = false;
+}
+</script>
+
+</body>
+</html>

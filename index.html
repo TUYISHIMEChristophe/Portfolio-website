@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUYISHIME Christophe | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header id="header">
+        <nav class="navbar">
+            <div class="logo">T.C</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text fade-in-up">
+                <span class="greeting">Hello, I'm</span>
+                <h1>TUYISHIME Christophe</h1>
+                <h2 class="typewriter">Web Developer | UI/UX Designer | Trading Analyst</h2>
+                <p>Building digital experiences with code and creativity. Specialized in modern web technologies and financial market analysis.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary">View Work</a>
+                    <a href="#contact" class="btn secondary">Contact Me</a>
+                    <button id="offerBtn" class="btn secondary">My Offer</button>
+                </div>
+
+            </div>
+            <div class="hero-image fade-in-up delay-200">
+                <div class="image-wrapper">
+                    <img src="images/wmremove-transformed.png" alt="TUYISHIME Christophe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text reveal">
+                    <p>I am a passionate professional with a diverse skillset spanning technology and finance. As a <strong>Web Developer</strong>, I craft clean, efficient code to build responsive websites.</p>
+                    <p>My journey in <strong>UI/UX Design</strong> allows me to create intuitive user interfaces that bridge the gap between functionality and aesthetics. Additionally, my expertise as a <strong>Trading Analyst</strong> gives me a unique analytical perspective on data and trends.</p>
+                    <p>I am dedicated to continuous learning and delivering high-quality solutions that meet client needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card reveal">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>React.js</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="skill-card reveal delay-100">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>UI/UX Design</h3>
+                    <ul>
+                        <li>Figma / Adobe XD</li>
+                        <li>Prototyping</li>
+                        <li>User Research</li>
+                        <li>Wireframing</li>
+                    </ul>
+                </div>
+                <div class="skill-card reveal delay-200">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Trading Analysis</h3>
+                    <ul>
+                        <li>Technical Analysis</li>
+                        <li>Market Trends</li>
+                        <li>Risk Management</li>
+                        <li>Forex & Stocks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="projects" class="section bg-alt">
+    <h2 class="section-title">My Projects</h2>
+
+    <div class="project-carousel">
+        <!-- Previous Button -->
+        <button id="prevProject" class="carousel-btn">&lt;</button>
+
+        <!-- Project Info Card -->
+        <div class="project-info card">
+            <div class="project-image">
+                <img src="images/Screenshot 2026-01-01 193603.png" alt="My Profile">
+            </div>
+            <h3 id="projectTitle">My Profile</h3>
+            <p id="projectDesc">I am TUYISHIME Christophe, a Web Developer, UI/UX Designer, and Trading Analyst.</p>
+            <div class="tags" id="projectTags">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+            </div>
+        </div>
+
+        <!-- Next Button -->
+        <button id="nextProject" class="carousel-btn">&gt;</button>
+    </div>
+</section>
+
+
+
+    <!-- Projects Section -->
+    <!-- <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card reveal">
+                    <div class="project-image">
+                        <img src="images/project1.jpg" alt="My Profile">
+                        <div class="overlay">
+                            <a href="#" class="icon-btn"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>My Profile</h3>
+                        <p>I am TUYISHIME Christophe, a Web Developer, UI/UX Designer, and Trading Analyst.</p>
+                        <div class="tags">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                        <button id="nextProject" class="carousel-btn">&gt;</button>
+                    </div>
+                </article>
+                <article class="project-card reveal delay-100">
+                    <div class="project-image">
+                        <img src="images/project2.jpg" alt="Finance Dashboard UI">
+                        <div class="overlay">
+                            <a href="#" class="icon-btn"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Finance Dashboard UI</h3>
+                        <p>High-fidelity UI design for a personal finance tracking application.</p>
+                        <div class="tags">
+                            <span>Figma</span>
+                            <span>UI Design</span>
+                            <span>Prototyping</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card reveal delay-200">
+                    <div class="project-image">
+                        <img src="images/project3.jpg" alt="Market Analysis Tool">
+                        <div class="overlay">
+                            <a href="#" class="icon-btn"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Market Analysis Tool</h3>
+                        <p>A web-based tool for analyzing stock market trends using real-time API data.</p>
+                        <div class="tags">
+                            <span>JavaScript</span>
+                            <span>Chart.js</span>
+                            <span>API</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info reveal">
+                    <h3>Let's Talk</h3>
+                    <p>Have a project in mind or want to discuss a new opportunity? Feel free to send me a message.</p>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>tuyishimechristophe21445@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+250 783737393</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kigali, Rwanda</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <form id="contactForm" class="contact-form reveal delay-200">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <select id="country" name="country" required>
+                            <option value="">Select Country</option>
+                            <option value="Rwanda" data-code="+250">Rwanda</option>
+                            <option value="USA" data-code="+1">USA</option>
+                            <option value="UK" data-code="+44">UK</option>
+                            <option value="Canada" data-code="+1">Canada</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Your Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="How can I help you?"></textarea>
+                    </div>
+                    <button type="submit" class="btn primary full-width">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div id="passwordBox" class="password-box hidden">
+        <div class="password-content">
+            <h3>Enter Password to Access Offer</h3>
+            <input type="password" id="offerPassword" placeholder="Type password and press Enter">
+            <button id="submitPassword">Enter</button>
+            <button id="closePassword">Cancel</button>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 TUYISHIME Christophe. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
